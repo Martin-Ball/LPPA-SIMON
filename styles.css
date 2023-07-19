@@ -61,6 +61,10 @@ h1 {
   margin-left: 7%;   
 }
 
+#green.active {
+  background-color: lightgreen; /* Cambia el color del botón activo aquí */
+}
+
 #red {
   background-color: red;
   border-top-right-radius: 100%;
@@ -68,7 +72,11 @@ h1 {
   width: 90%;
   margin-top: 7%;
   margin-left: 2%;
-  }
+}
+
+#red.active {
+  background-color: lightcoral; /* Cambia el color del botón activo aquí */
+}
 
 #yellow {
   background-color: yellow;
@@ -77,6 +85,10 @@ h1 {
   width: 90%;
   margin-top: 3%;
   margin-left: 7%;
+}
+
+#yellow.active {
+  background-color: lightgoldenrodyellow; /* Cambia el color del botón activo aquí */
 }
 
 #blue {
@@ -88,7 +100,6 @@ h1 {
   margin-left: 2%;
 }
 
-#start-btn {
-  display: block;
-  margin: 20px auto;
+#blue.active {
+  background-color: lightblue; /* Cambia el color del botón activo aquí */
 }
