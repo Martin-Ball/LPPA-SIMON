@@ -18,10 +18,11 @@ for (var i = 0; i < buttonElements.length; i++) {
 // Start the game
 function startGame() {
   sequence = [];
+  playerSequence = [];
   level = 1;
   generateSequence();
   playSequence();
-  buttonsDisabled = false;
+  buttonsDisabled = true;
 }
 
 // Generate the sequence
@@ -36,7 +37,10 @@ function generateSequence() {
 function playSequence() {
   var i = 0;
   var interval = setInterval(function() {
-    playButton(sequence[i]);
+    clearButtons(); // Clear the buttons first
+    setTimeout(function() {
+      playButton(sequence[i]);
+    }, 100);
     i++;
     if (i >= sequence.length) {
       clearInterval(interval);
@@ -63,6 +67,13 @@ function playButton(buttonIndex) {
   setTimeout(function() {
     buttonElement.classList.remove('active');
   }, 500);
+}
+
+// Clear button states
+function clearButtons() {
+  for (var i = 0; i < buttonElements.length; i++) {
+    buttonElements[i].classList.remove('active');
+  }
 }
 
 // Check player's sequence

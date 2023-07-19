@@ -4,27 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simon</title>
-  <link rel="stylesheet" src="styles.css" type="text/css">
   <link rel="stylesheet" href="styles.css" type="text/css">
-  <script src="script.js"></script>
+  <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
   <div class="Titulo">
     <h1>Simon</h1>
-    <label>
-      Nombre del Jugador:
-    </label>
+    <a>
+      Nombre del jugador
+    </a>
     <input name="name" value="">
   </div>
    
-  <div class="simon-board">
-    <div id="green" class="simon-btn"> <p></p> </div>
-    <div id="red" class="simon-btn"> </div>
-    <div id="yellow" class="simon-btn"> </div>
-    <div id="blue" class="simon-btn"> </div>
+  <div class="simon-container">
+    <div class="simon-board">
+      <div id="green" class="simon-btn"> <p></p> </div>
+      <div id="red" class="simon-btn"> </div>
+      <div id="yellow" class="simon-btn"> </div>
+      <div id="blue" class="simon-btn"> </div>
+    </div>
+
+    <button class="start-btn">Start</button>
   </div>
-  <button id="start-btn">Start</button>
-  
-  
+
+  <script src="script.js"></script>
 </body>
 </html>
