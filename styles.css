@@ -19,6 +19,18 @@ h1 {
   font-family: inherit;
 }
 
+#score {
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Times New Roman', Times, serif;
+  color: cornsilk;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
 .simon-board {
   width: 600px;
   height: 600px;
@@ -29,6 +41,7 @@ h1 {
   grid-gap: 10px;
   border-radius:50%;
   background-color: black;
+  position: relative;
 }
 
 .start-btn {

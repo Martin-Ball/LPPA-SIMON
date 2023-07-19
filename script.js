@@ -4,8 +4,11 @@ var playerSequence = [];
 var level = 1;
 var buttonsDisabled = true;
 var strictMode = false;
+var score = 0;
+
 var buttonElements = document.querySelectorAll('.simon-btn');
 var startButton = document.querySelector('.start-btn');
+var scoreElement = document.getElementById('score');
 
 // Start button event listener
 startButton.addEventListener('click', startGame);
@@ -21,8 +24,8 @@ function startGame() {
   playerSequence = [];
   level = 1;
   generateSequence();
-  playSequence();
   buttonsDisabled = true;
+  playSequence();
 }
 
 // Generate the sequence
@@ -37,7 +40,7 @@ function generateSequence() {
 function playSequence() {
   var i = 0;
   var interval = setInterval(function() {
-    clearButtons(); // Clear the buttons first
+    clearButtons();
     setTimeout(function() {
       playButton(sequence[i]);
     }, 100);
@@ -85,6 +88,8 @@ function checkPlayerSequence() {
       generateSequence();
       setTimeout(function() {
         playSequence();
+        score++;
+        scoreElement.textContent = 'Puntaje: ' + score;
       }, 1000);
     } else {
       if (strictMode) {
