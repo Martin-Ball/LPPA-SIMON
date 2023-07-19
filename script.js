@@ -5,7 +5,7 @@ var level = 1;
 var buttonsDisabled = true;
 var strictMode = false;
 var buttonElements = document.querySelectorAll('.simon-btn');
-var startButton = document.getElementById('start-btn');
+var startButton = document.querySelector('.start-btn');
 
 // Start button event listener
 startButton.addEventListener('click', startGame);
