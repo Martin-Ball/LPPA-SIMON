@@ -45,10 +45,12 @@ function playSequence() {
   var i = 0;
   var interval = setInterval(function() {
     clearButtons();
-    setTimeout(function() {
-      playButton(sequence[i]);
-      console.log('sequence: ' + sequence[i])
-    }, 100);
+    setTimeout(function(index) {
+      playButton(sequence[index]);
+      console.log('sequence: ' + sequence)
+      console.log('sequence: ' + sequence[index])
+      console.log(index)
+    }, 100, i);
     i++;
     if (i >= sequence.length) {
       clearInterval(interval);
