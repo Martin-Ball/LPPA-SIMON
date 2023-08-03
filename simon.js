@@ -20,20 +20,24 @@ for (var i = 0; i < buttonElements.length; i++) {
 
 // Start the game
 function startGame() {
-  sequence = [];
   playerSequence = [];
   level = 1;
   generateSequence();
   buttonsDisabled = true;
-  playSequence();
 }
 
 // Generate the sequence
 function generateSequence() {
+  sequence = [];
+  
   for (var i = 0; i < level; i++) {
     var randomNum = Math.floor(Math.random() * 4);
-    sequence.push(randomNum);
+    sequence[i] = randomNum;
   }
+
+  console.log('sequence: ' + sequence)
+
+  playSequence();
 }
 
 // Play the sequence
@@ -43,6 +47,7 @@ function playSequence() {
     clearButtons();
     setTimeout(function() {
       playButton(sequence[i]);
+      console.log('sequence: ' + sequence[i])
     }, 100);
     i++;
     if (i >= sequence.length) {
@@ -54,6 +59,7 @@ function playSequence() {
 
 // Handle button click
 function handleButtonClick(event) {
+  console.log('Botón clickeado:', event.target.id);
   if (!buttonsDisabled) {
     var buttonId = event.target.id;
     var buttonIndex = getButtonIndex(buttonId);
@@ -65,11 +71,15 @@ function handleButtonClick(event) {
 
 // Play a button
 function playButton(buttonIndex) {
-  var buttonElement = buttonElements[buttonIndex];
-  buttonElement.classList.add('active');
-  setTimeout(function() {
-    buttonElement.classList.remove('active');
-  }, 500);
+  if (buttonIndex >= 0 && buttonIndex < buttonElements.length) {
+    var buttonElement = buttonElements[buttonIndex];
+    buttonElement.classList.add('active');
+    setTimeout(function() {
+      buttonElement.classList.remove('active');
+    }, 500);
+  } else {
+    console.error('Índice de botón inválido: ', buttonIndex);
+  }
 }
 
 // Clear button states
@@ -98,6 +108,8 @@ function checkPlayerSequence() {
       } else {
         alert('Try Again!');
         playerSequence = [];
+        score = 0;
+        scoreElement.textContent = 'Puntaje: ' + score;
         setTimeout(function() {
           playSequence();
         }, 1000);
@@ -123,12 +135,16 @@ function arraysMatch(arr1, arr2) {
 function getButtonIndex(buttonId) {
   switch (buttonId) {
     case 'green':
+      console.log('green')
       return 0;
     case 'red':
+      console.log('red')
       return 1;
     case 'yellow':
+      console.log('yellow')
       return 2;
     case 'blue':
+      console.log('blue')
       return 3;
   }
 }
