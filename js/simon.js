@@ -35,7 +35,7 @@ function startGame() {
     buttonsDisabled = true;
     generateSequence();
   }else{
-    openModal('Error', 'Ingrese un nombre con mas de 3 caracteres')
+    openModal('Error', 'Ingrese un nombre con más de 3 caractéres')
   }
 }
 
