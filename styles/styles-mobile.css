@@ -1,5 +1,4 @@
 @media screen and (max-width: 750px) {
-
     .header {
       flex-direction: column;
       align-items: center;
@@ -15,15 +14,42 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-width: 200px; 
     }
-
+  
     .top-nav a {
       display: block;
       padding: 10px;
+      min-width: 750px;
     }
   
     .responsive {
       display: none;
     }
-  
-}
+
+    .header-container .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    .player-name {
+        margin-bottom: 10px;
+    }
+
+    #score, #level {
+        margin: 5px;
+        white-space: nowrap;
+    }
+
+    #contact-form h2 {
+        font-size: 40px;
+        font-family: 'Times New Roman', Times, serif;
+        color: #A5D7E8;
+        text-align: center;
+    }
+  }
