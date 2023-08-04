@@ -22,41 +22,32 @@ for (var i = 0; i < buttonElements.length; i++) {
 function startGame() {
   playerSequence = [];
   level = 1;
-  generateSequence();
+  score = 0;
+  scoreElement.textContent = 'Puntaje: ' + score;
   buttonsDisabled = true;
+  generateSequence();
 }
 
 // Generate the sequence
 function generateSequence() {
-  sequence = [];
-  
-  for (var i = 0; i < level; i++) {
-    var randomNum = Math.floor(Math.random() * 4);
-    sequence[i] = randomNum;
-  }
+  // Generate only one additional random light for this level
+  var randomNum = Math.floor(Math.random() * 4);
+  sequence.push(randomNum);
 
-  console.log('sequence: ' + sequence)
+  console.log('sequence generate: ' + sequence);
 
   playSequence();
 }
 
-// Play the sequence
+//play sequence generated
 function playSequence() {
-  var i = 0;
-  var interval = setInterval(function() {
-    clearButtons();
-    setTimeout(function(index) {
-      playButton(sequence[index]);
-      console.log('sequence: ' + sequence)
-      console.log('sequence: ' + sequence[index])
-      console.log(index)
-    }, 100, i);
-    i++;
-    if (i >= sequence.length) {
-      clearInterval(interval);
-      buttonsDisabled = false;
-    }
-  }, 1000);
+  sequence.forEach((color, index) => {
+    setTimeout(function () {
+      playButton(color);
+      console.log("color: "+ color)
+    }, (index + 1) * 800);
+    buttonsDisabled = false;
+});
 }
 
 // Handle button click
@@ -84,13 +75,6 @@ function playButton(buttonIndex) {
   }
 }
 
-// Clear button states
-function clearButtons() {
-  for (var i = 0; i < buttonElements.length; i++) {
-    buttonElements[i].classList.remove('active');
-  }
-}
-
 // Check player's sequence
 function checkPlayerSequence() {
   if (playerSequence.length === sequence.length) {
@@ -99,7 +83,6 @@ function checkPlayerSequence() {
       level++;
       generateSequence();
       setTimeout(function() {
-        playSequence();
         score++;
         scoreElement.textContent = 'Puntaje: ' + score;
       }, 1000);
@@ -110,11 +93,8 @@ function checkPlayerSequence() {
       } else {
         alert('Try Again!');
         playerSequence = [];
-        score = 0;
-        scoreElement.textContent = 'Puntaje: ' + score;
-        setTimeout(function() {
-          playSequence();
-        }, 1000);
+        sequence = []
+        generateSequence()
       }
     }
   }
@@ -137,16 +117,12 @@ function arraysMatch(arr1, arr2) {
 function getButtonIndex(buttonId) {
   switch (buttonId) {
     case 'green':
-      console.log('green')
       return 0;
     case 'red':
-      console.log('red')
       return 1;
     case 'yellow':
-      console.log('yellow')
       return 2;
     case 'blue':
-      console.log('blue')
       return 3;
   }
 }
