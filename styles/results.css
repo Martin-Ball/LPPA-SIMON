@@ -21,8 +21,9 @@ tbody tr:nth-child(even) {
 
 .score {
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   font-family: 'Times New Roman', Times, serif;
   color: #A5D7E8;
   width: 100%;
+  padding-top: 20px;
 }
