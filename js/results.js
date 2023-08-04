@@ -3,9 +3,9 @@ var sortDirection = "asc";
 var sortColumn = null;
 
 function loadTable() {
-    var tabla = document.getElementById("table-history").getElementsByTagName('tbody')[0];
+    var table = document.getElementById("table-history").getElementsByTagName('tbody')[0];
 
-    tabla.innerHTML = "";
+    table.innerHTML = "";
 
     if (sortColumn !== null) {
         records.sort(function(a, b) {
@@ -18,7 +18,7 @@ function loadTable() {
     }
 
     for (var i = 0; i < records.length; i++) {
-        var row = tabla.insertRow(i);
+        var row = table.insertRow(i);
         var nameCell = row.insertCell(0);
         var dateCell = row.insertCell(1);
         var levelCell = row.insertCell(2);
