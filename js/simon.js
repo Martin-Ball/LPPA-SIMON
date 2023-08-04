@@ -97,11 +97,11 @@ function checkPlayerSequence() {
     if (arraysMatch(playerSequence, sequence)) {
       playerSequence = [];
       level++;
-      generateSequence();
       setTimeout(function() {
         score++;
         levelElement.textContent = 'Nivel: ' + sequence.length;
       }, 1000);
+      generateSequence();
     } else {
       if (strictMode) {
         openModal('Game Over', 'Hubo un error en la secuencia, vuelve a intentarlo!')
@@ -111,7 +111,7 @@ function checkPlayerSequence() {
         levelElement.textContent = 'Nivel: ' + 0;
         playerSequence = [];
         sequence = []
-        generateSequence()
+        saveLocalStorage(score)
       }
     }
   }
@@ -154,6 +154,47 @@ function closeModal() {
   modal.style.display = "none";
   titleModal.textContent = "";
   textModal.textContent = "";
+}
+
+/**LOCAL STORAGE**/
+function getLocalStorage(){
+  var scoreLS = localStorage.getItem("score");
+    if (!scoreLS) {
+        return [];
+    }
+    return JSON.parse(scoreLS);
+}
+
+function saveLocalStorage(scoreToSave){
+  var scoreLS = getLocalStorage();
+  console.log(scoreLS)
+  console.log(scoreToSave)
+  scoreLS.push(Object.fromEntries(getResults()));
+
+  localStorage.setItem("score", JSON.stringify(scoreLS))
+}
+
+function getResults() {
+  var gameScore = new Map();
+  gameScore.set("date", getDateAndHour());
+  gameScore.set("name", namePlayer.value);
+  gameScore.set("level", levelElement.value);
+  gameScore.set("hits", score);
+  return gameScore;
+}
+
+function getDateAndHour() {
+  var date = new Date();
+
+  var day = String(date.getDate()).padStart(2, "0");
+  var month = String(date.getMonth() + 1).padStart(2, "0");
+  var year = date.getFullYear();
+
+  var hr = String(date.getHours()).padStart(2, "0");
+  var min = String(date.getMinutes()).padStart(2, "0");
+  var seg = String(date.getSeconds()).padStart(2, "0");
+
+  return `${day}/${month}/${year} - ${hr}:${min}:${seg}`;
 }
 
 closeButton.addEventListener("click", closeModal);
