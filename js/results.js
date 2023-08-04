@@ -1,15 +1,15 @@
 var records = [];
-var sortDirection = "asc";
+var sortDirection = 'asc';
 var sortColumn = null;
 
 function loadTable() {
-    var table = document.getElementById("table-history").getElementsByTagName('tbody')[0];
+    var table = document.getElementById('table-history').getElementsByTagName('tbody')[0];
 
     table.innerHTML = "";
 
     if (sortColumn !== null) {
         records.sort(function(a, b) {
-            if (sortDirection === "asc") {
+            if (sortDirection === 'asc') {
                 return a[sortColumn] > b[sortColumn] ? 1 : -1;
             } else {
                 return a[sortColumn] < b[sortColumn] ? 1 : -1;
@@ -33,7 +33,7 @@ function loadTable() {
 
 
 function getLocalStorage(){
-    var scoreLS = localStorage.getItem("score");
+    var scoreLS = localStorage.getItem('score');
     if (!scoreLS) {
         return [];
     }
@@ -45,18 +45,18 @@ function getLocalStorage(){
     return list;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
     records = getLocalStorage();
     loadTable();
 
-    var headers = document.querySelectorAll("#table-history th[data-sort]");
+    var headers = document.querySelectorAll('#table-history th[data-sort]');
     headers.forEach(function(header) {
-        header.addEventListener("click", function() {
-            var key = this.getAttribute("data-sort");
+        header.addEventListener('click', function() {
+            var key = this.getAttribute('data-sort');
             if (sortColumn === key) {
-                sortDirection = sortDirection === "asc" ? "desc" : "asc";
+                sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
             } else {
-                sortDirection = "asc";
+                sortDirection = 'asc';
             }
             sortColumn = key;
 
