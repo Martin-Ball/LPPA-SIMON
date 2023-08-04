@@ -7,26 +7,32 @@
   <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-  <div class="Titulo">
-    <h1>Simon</h1>
-    <a>
-      Nombre del jugador
-    </a>
-    <input name="name" value="">
+
+  <div class="top-nav">
+    <a href="index.html">Juego</a>
+    <a id="resultBtn" href="#">Resultados</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="https://github.com/Martin-Ball/LPPA-SIMON" target="_blank">Repositorio</a>
   </div>
-   
-  <div class="simon-container">
-    <div class="simon-board">
-      <div id="green" class="simon-btn"> <p></p> </div>
-      <div id="red" class="simon-btn"> </div>
-      <div id="yellow" class="simon-btn"> </div>
-      <div id="blue" class="simon-btn"> </div>
+
+      <div class="header-container">
+        <h1>Simon</h1>
+        <a>Nombre del jugador</a>
+        <input name="name" value="">
+        <h1 id="score">Puntaje: 0</h1>
+      </div>
+    
+    <div class="simon-container">
+      <div class="simon-board">
+        <div id="green" class="simon-btn"> <p></p> </div>
+        <div id="red" class="simon-btn"> </div>
+        <div id="yellow" class="simon-btn"> </div>
+        <div id="blue" class="simon-btn"> </div>
+      </div>
+
+      <button class="start-btn">Start</button>
     </div>
 
-    <button class="start-btn">Start</button>
-  </div>
-
-  <h1 id="score">Puntaje: 0</h1>
 
   <script src="simon.js"></script>
 </body>
