@@ -1,7 +1,23 @@
+var records = [];
+var sortDirection = "asc";
+var sortColumn = null;
+
 function loadTable() {
     var tabla = document.getElementById("table-history").getElementsByTagName('tbody')[0];
 
     var value = getLocalStorage();
+
+    // Limpiar tabla
+    tabla.innerHTML = "";
+
+    // Ordenar los registros según la columna seleccionada
+    records.sort(function(a, b) {
+        if (sortDirection === "asc") {
+            return a[sortColumn] > b[sortColumn] ? 1 : -1;
+        } else {
+            return a[sortColumn] < b[sortColumn] ? 1 : -1;
+        }
+    });
 
     for (var i = 0; i < value.length; i++) {
         var row = tabla.insertRow(i);
@@ -30,19 +46,6 @@ function getLocalStorage(){
     return list;
 }
 
-function sortBy(key) {
-    records.sort(function(a, b) {
-        if (a[key] < b[key]) return -1;
-        if (a[key] > b[key]) return 1;
-        return 0;
-    });
-
-    var tabla = document.getElementById("table-history").getElementsByTagName('tbody')[0];
-    tabla.innerHTML = "";
-
-    loadTable();
-}
-
 document.addEventListener("DOMContentLoaded", function() {
     records = getLocalStorage();
     loadTable();
@@ -51,7 +54,15 @@ document.addEventListener("DOMContentLoaded", function() {
     headers.forEach(function(header) {
         header.addEventListener("click", function() {
             var key = this.getAttribute("data-sort");
-            sortBy(key);
+            if (sortColumn === key) {
+                // Cambiar la dirección de ordenamiento si se hace clic nuevamente en la misma columna
+                sortDirection = sortDirection === "asc" ? "desc" : "asc";
+            } else {
+                sortDirection = "asc";
+                sortColumn = key;
+            }
+
+            loadTable();
         });
     });
 });
