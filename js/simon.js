@@ -20,7 +20,7 @@ var textModal = modal.querySelector("p");
 var closeButton = document.getElementsByClassName("close")[0];
 
 // Start button event listener
-startButton.addEventListener('click', startGame);
+startButton.addEventListener('click', normalGame);
 
 strictButton.addEventListener('click', strictGame);
 helpStrictButton.addEventListener('click', modalSStrict);
@@ -31,7 +31,12 @@ for (var i = 0; i < buttonElements.length; i++) {
 }
 
 function strictGame(){
-  strictMode = true
+  strictMode = true;
+  startGame();
+}
+
+function normalGame(){
+  strictMode = false;
   startGame()
 }
 
@@ -114,6 +119,7 @@ function checkPlayerSequence() {
     } else {
       if (strictMode) {
         openModal('Game Over', 'Hubo un error en la secuencia, vuelve a intentarlo!');
+        scoreElement.textContent = 'Puntaje: ' + 0;
         levelElement.textContent = 'Nivel: ' + 0;
         playerSequence = [];
         sequence = [];
