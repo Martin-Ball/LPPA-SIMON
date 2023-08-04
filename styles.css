@@ -65,8 +65,8 @@ body {
   padding-right: 10px;
 }
 
-.header-container .row .score,
-.header-container .row .level {
+.header-container .row #score,
+.header-container .row #level {
   text-align: center;
   font-size: 40px;
   font-family: 'Times New Roman', Times, serif;

@@ -9,6 +9,7 @@ var score = 0;
 var buttonElements = document.querySelectorAll('.simon-btn');
 var startButton = document.querySelector('.start-btn');
 var scoreElement = document.getElementById('score');
+var levelElement = document.getElementById('level');
 
 // Start button event listener
 startButton.addEventListener('click', startGame);
@@ -58,6 +59,7 @@ function handleButtonClick(event) {
     var buttonIndex = getButtonIndex(buttonId);
     playButton(buttonIndex);
     playerSequence.push(buttonIndex);
+    scoreElement.textContent = 'Puntaje: ' + score++;
     checkPlayerSequence();
   }
 }
@@ -84,7 +86,7 @@ function checkPlayerSequence() {
       generateSequence();
       setTimeout(function() {
         score++;
-        scoreElement.textContent = 'Puntaje: ' + score;
+        levelElement.textContent = 'Nivel: ' + sequence.length;
       }, 1000);
     } else {
       if (strictMode) {
@@ -92,6 +94,7 @@ function checkPlayerSequence() {
         startGame();
       } else {
         alert('Try Again!');
+        levelElement.textContent = 'Nivel: ' + 0;
         playerSequence = [];
         sequence = []
         generateSequence()
