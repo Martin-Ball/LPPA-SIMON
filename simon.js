@@ -13,6 +13,8 @@ var levelElement = document.getElementById('level');
 var namePlayer = document.getElementById("namePlayer");
 
 var modal = document.getElementById("modal-error");
+var titleModal = modal.querySelector("h2");
+var textModal = modal.querySelector("p");
 var closeButton = document.getElementsByClassName("close")[0];
 
 // Start button event listener
@@ -33,8 +35,7 @@ function startGame() {
     buttonsDisabled = true;
     generateSequence();
   }else{
-    openModal()
-    //alert('Ingrese un nombre con mas de 3 caracteres');
+    openModal('Error', 'Ingrese un nombre con mas de 3 caracteres')
   }
 }
 
@@ -59,7 +60,6 @@ function playSequence() {
       playButton(color);
       console.log("color: "+ color)
     }, (index + 1) * 800);
-    buttonsDisabled = false;
   });
 
   buttonsDisabled = false
@@ -104,10 +104,10 @@ function checkPlayerSequence() {
       }, 1000);
     } else {
       if (strictMode) {
-        alert('Game Over!');
+        openModal('Game Over', 'Hubo un error en la secuencia, vuelve a intentarlo!')
         startGame();
       } else {
-        alert('Try Again!');
+        openModal('Try', 'Hubo un error en la secuencia, vuelve a intentarlo!')
         levelElement.textContent = 'Nivel: ' + 0;
         playerSequence = [];
         sequence = []
@@ -144,12 +144,16 @@ function getButtonIndex(buttonId) {
   }
 }
 
-function openModal() {
+function openModal(title, text) {
   modal.style.display = "block";
+  titleModal.textContent = title;
+  textModal.textContent = text;
 }
 
 function closeModal() {
   modal.style.display = "none";
+  titleModal.textContent = "";
+  textModal.textContent = "";
 }
 
 closeButton.addEventListener("click", closeModal);
