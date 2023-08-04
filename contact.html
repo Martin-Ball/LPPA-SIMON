@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/contact-styles.css">
+</head>
+
+<body>
+    <div class="top-nav">
+        <a href="index.html">Juego</a>
+        <a id="resultBtn" href="#">Resultados</a>
+        <a href="contact.html">Contacto</a>
+        <a href="https://github.com/Martin-Ball/LPPA-SIMON" target="_blank">Repositorio</a>
+      </div>
+
+
+    <form id="contact-form">
+        <h2>Formulario de Contacto</h2>
+
+        <label for="name">Nombre:</label>
+        <input type="text" name="name" id="name">
+        <span id="nameError" data-name="Error en el Nombre" class="formerror"></span>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email">
+        <span id="emailError" data-name="Error en Email" class="formerror"></span>
+
+        <label for="message">Mensaje:</label>
+        <textarea name="message" id="message" rows="5"></textarea>
+        <span id="messageError" data-name="Error en el Mensaje" class="formerror"></span>
+
+        <button type="submit" value="contactar">Enviar</button>
+    </form>
+
+
+    <script src="contacto.js"></script>
+    <script src="shared.js"></script>
+</body>
+
+</html>

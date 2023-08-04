@@ -107,7 +107,7 @@ function checkPlayerSequence() {
         openModal('Game Over', 'Hubo un error en la secuencia, vuelve a intentarlo!')
         startGame();
       } else {
-        openModal('Try', 'Hubo un error en la secuencia, vuelve a intentarlo!')
+        openModal('Try Again', 'Hubo un error en la secuencia, vuelve a intentarlo!')
         levelElement.textContent = 'Nivel: ' + 0;
         playerSequence = [];
         sequence = []
