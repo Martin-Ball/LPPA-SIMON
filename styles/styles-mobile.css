@@ -5,9 +5,11 @@
     }
   
     .menuToggle {
-      margin-left: 15px;
       padding-top: 15px;
       display: block;
+      background-color: #19376D;
+      padding-bottom: 10px;
+      padding-left: 15px;
     }
   
     .top-nav {
