@@ -178,7 +178,7 @@ function getResults() {
   var gameScore = new Map();
   gameScore.set("date", getDateAndHour());
   gameScore.set("name", namePlayer.value);
-  gameScore.set("level", levelElement.value);
+  gameScore.set("level", level);
   gameScore.set("hits", score);
   return gameScore;
 }
