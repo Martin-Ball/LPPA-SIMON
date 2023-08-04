@@ -4,7 +4,19 @@ body {
 
 /**NAVBAR**/
 
+header h1 {
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  color: #A5D7E8;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .top-nav {
+  display: flex;
+  justify-content: center;
   background-color: #19376D;
   text-align: center;
   overflow: hidden;
@@ -26,8 +38,19 @@ body {
 }
 
 .topnav a.active {
-  background-color: #04AA6D;
+  background-color: #A5D7E8;
   color: #A5D7E8;
+}
+
+.menuToggle {
+  display: none;
+}
+
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background-color: #A5D7E8;
+  margin: 5px 0;
 }
 
 /**HEADER**/

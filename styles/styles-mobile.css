@@ -1,0 +1,29 @@
+@media screen and (max-width: 750px) {
+
+    .header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .menuToggle {
+      margin-left: 15px;
+      padding-top: 15px;
+      display: block;
+    }
+  
+    .top-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .top-nav a {
+      display: block;
+      padding: 10px;
+    }
+  
+    .responsive {
+      display: none;
+    }
+  
+}
