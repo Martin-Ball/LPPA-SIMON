@@ -23,7 +23,7 @@ var closeButton = document.getElementsByClassName("close")[0];
 startButton.addEventListener('click', startGame);
 
 strictButton.addEventListener('click', strictGame);
-helpStrictButton.addEventListener('click', startGame);
+helpStrictButton.addEventListener('click', modalSStrict);
 
 // Button click event listeners
 for (var i = 0; i < buttonElements.length; i++) {
@@ -102,7 +102,11 @@ function checkPlayerSequence() {
       playerSequence = [];
       level++;
       setTimeout(function() {
-        score++;
+        if(strictMode){
+          score = (score + 1) * 2;
+        }else{
+          score ++;
+        }
         levelElement.textContent = 'Nivel: ' + sequence.length;
       }, 1000);
       buttonsDisabled = false
@@ -151,6 +155,11 @@ function getButtonIndex(buttonId) {
     case 'blue':
       return 3;
   }
+}
+
+/**MODAL STRICT**/
+function modalSStrict(){
+  openModal("¿Que es Todo o nada?", "Por cada nivel que ganes duplicas puntos, pero si pierdes, tu puntaje vuelve a cero");
 }
 
 function openModal(title, text) {
