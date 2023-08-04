@@ -12,12 +12,12 @@ var strictButton = document.querySelector('.strict-btn');
 var helpStrictButton = document.querySelector('.help-strict-btn');
 var scoreElement = document.getElementById('score');
 var levelElement = document.getElementById('level');
-var namePlayer = document.getElementById("namePlayer");
+var namePlayer = document.getElementById('namePlayer');
 
-var modal = document.getElementById("modal-error");
-var titleModal = modal.querySelector("h2");
-var textModal = modal.querySelector("p");
-var closeButton = document.getElementsByClassName("close")[0];
+var modal = document.getElementById('modal-error');
+var titleModal = modal.querySelector('h2');
+var textModal = modal.querySelector('p');
+var closeButton = document.getElementsByClassName('close')[0];
 
 // Start button event listener
 startButton.addEventListener('click', normalGame);
@@ -42,7 +42,7 @@ function normalGame(){
 
 // Start the game
 function startGame() {
-  if(namePlayer.value != "" && namePlayer.value.length > 3){
+  if(namePlayer.value != '' && namePlayer.value.length > 3){
     playerSequence = [];
     level = 1;
     score = 0;
@@ -165,24 +165,24 @@ function getButtonIndex(buttonId) {
 
 /**MODAL STRICT**/
 function modalSStrict(){
-  openModal("¿Que es Todo o nada?", "Por cada nivel que ganes duplicas puntos, pero si pierdes, tu puntaje vuelve a cero");
+  openModal('¿Que es Todo o nada?', 'Por cada nivel que ganes duplicas puntos, pero si pierdes, tu puntaje vuelve a cero');
 }
 
 function openModal(title, text) {
-  modal.style.display = "block";
+  modal.style.display = 'block';
   titleModal.textContent = title;
   textModal.textContent = text;
 }
 
 function closeModal() {
-  modal.style.display = "none";
-  titleModal.textContent = "";
-  textModal.textContent = "";
+  modal.style.display = 'none';
+  titleModal.textContent = '';
+  textModal.textContent = '';
 }
 
 /**LOCAL STORAGE**/
 function getLocalStorage(){
-  var scoreLS = localStorage.getItem("score");
+  var scoreLS = localStorage.getItem('score');
     if (!scoreLS) {
         return [];
     }
@@ -192,34 +192,34 @@ function getLocalStorage(){
 function saveLocalStorage(){
   var scoreLS = getLocalStorage();
   scoreLS.push(Object.fromEntries(getResults()));
-  localStorage.setItem("score", JSON.stringify(scoreLS));
+  localStorage.setItem('score', JSON.stringify(scoreLS));
 }
 
 function getResults() {
   var gameScore = new Map();
-  gameScore.set("date", getDateAndHour());
-  gameScore.set("name", namePlayer.value);
-  gameScore.set("level", level);
-  gameScore.set("hits", score);
+  gameScore.set('date', getDateAndHour());
+  gameScore.set('name', namePlayer.value);
+  gameScore.set('level', level);
+  gameScore.set('hits', score);
   return gameScore;
 }
 
 function getDateAndHour() {
   var date = new Date();
 
-  var day = String(date.getDate()).padStart(2, "0");
-  var month = String(date.getMonth() + 1).padStart(2, "0");
+  var day = String(date.getDate()).padStart(2, '0');
+  var month = String(date.getMonth() + 1).padStart(2, '0');
   var year = date.getFullYear();
 
-  var hr = String(date.getHours()).padStart(2, "0");
-  var min = String(date.getMinutes()).padStart(2, "0");
-  var seg = String(date.getSeconds()).padStart(2, "0");
+  var hr = String(date.getHours()).padStart(2, '0');
+  var min = String(date.getMinutes()).padStart(2, '0');
+  var seg = String(date.getSeconds()).padStart(2, '0');
 
   return `${day}/${month}/${year} - ${hr}:${min}:${seg}`;
 }
 
-closeButton.addEventListener("click", closeModal);
-window.addEventListener("click", function(event) {
+closeButton.addEventListener('click', closeModal);
+window.addEventListener('click', function(event) {
     if (event.target === modal) {
         closeModal();
     }
