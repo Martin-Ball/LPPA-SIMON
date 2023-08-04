@@ -15,8 +15,9 @@ thead {
     background-color: #0B2447;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #0B2447;
+thead tr th {
+    background-color: #19376D;
+    color: #A5D7E8
 }
 
 .score {
