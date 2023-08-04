@@ -17,8 +17,7 @@
 
   <div class="header-container">
     <div class="player-name">
-      <a>Nombre del jugador</a>
-      <input name="name" placeholder="Nombre del jugador">
+      <input id="namePlayer" name="name" placeholder="Nombre del jugador">
     </div>
   
     <div class="row">
@@ -27,16 +26,24 @@
     </div>
   </div>
     
-    <div class="simon-container">
-      <div class="simon-board">
-        <div id="green" class="simon-btn"> <p></p> </div>
-        <div id="red" class="simon-btn"> </div>
-        <div id="yellow" class="simon-btn"> </div>
-        <div id="blue" class="simon-btn"> </div>
-      </div>
-
-      <button class="start-btn">Start</button>
+  <div class="simon-container">
+    <div class="simon-board">
+      <div id="green" class="simon-btn"> <p></p> </div>
+      <div id="red" class="simon-btn"> </div>
+      <div id="yellow" class="simon-btn"> </div>
+      <div id="blue" class="simon-btn"> </div>
     </div>
+
+    <button class="start-btn">Start</button>
+  </div>  
+
+  <div id="modal-error" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Error</h2>
+        <p>Debe ingresar un nombre con mas de 3 caracteres</p>
+    </div>
+  </div>
 
 
   <script src="simon.js"></script>

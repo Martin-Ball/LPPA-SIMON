@@ -10,6 +10,10 @@ var buttonElements = document.querySelectorAll('.simon-btn');
 var startButton = document.querySelector('.start-btn');
 var scoreElement = document.getElementById('score');
 var levelElement = document.getElementById('level');
+var namePlayer = document.getElementById("namePlayer");
+
+var modal = document.getElementById("modal-error");
+var closeButton = document.getElementsByClassName("close")[0];
 
 // Start button event listener
 startButton.addEventListener('click', startGame);
@@ -21,12 +25,17 @@ for (var i = 0; i < buttonElements.length; i++) {
 
 // Start the game
 function startGame() {
-  playerSequence = [];
-  level = 1;
-  score = 0;
-  scoreElement.textContent = 'Puntaje: ' + score;
-  buttonsDisabled = true;
-  generateSequence();
+  if(namePlayer.value != "" && namePlayer.value.length > 3){
+    playerSequence = [];
+    level = 1;
+    score = 0;
+    scoreElement.textContent = 'Puntaje: ' + score;
+    buttonsDisabled = true;
+    generateSequence();
+  }else{
+    openModal()
+    //alert('Ingrese un nombre con mas de 3 caracteres');
+  }
 }
 
 // Generate the sequence
@@ -42,13 +51,18 @@ function generateSequence() {
 
 //play sequence generated
 function playSequence() {
+
+  buttonsDisabled = true
+
   sequence.forEach((color, index) => {
     setTimeout(function () {
       playButton(color);
       console.log("color: "+ color)
     }, (index + 1) * 800);
     buttonsDisabled = false;
-});
+  });
+
+  buttonsDisabled = false
 }
 
 // Handle button click
@@ -129,3 +143,18 @@ function getButtonIndex(buttonId) {
       return 3;
   }
 }
+
+function openModal() {
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  modal.style.display = "none";
+}
+
+closeButton.addEventListener("click", closeModal);
+window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+        closeModal();
+    }
+});
