@@ -137,6 +137,36 @@ header h1 {
   text-transform: uppercase;
 }
 
+.strict-btn {
+  color: #A5D7E8;
+  padding: 10px 20px;
+  background-color: #0B2447;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 17px;
+  border: 1px solid;
+  font-family: inherit;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+
+.help-strict-btn {
+  color: #A5D7E8;
+  padding: 10px 20px;
+  background-color: #0B2447;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 17px;
+  border: 1px solid;
+  font-family: inherit;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+
 .simon-container {
   display: flex;
   flex-direction: column;

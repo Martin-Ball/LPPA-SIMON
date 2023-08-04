@@ -8,6 +8,8 @@ var score = 0;
 
 var buttonElements = document.querySelectorAll('.simon-btn');
 var startButton = document.querySelector('.start-btn');
+var strictButton = document.querySelector('.strict-btn');
+var startButton = document.querySelector('.help-strict-btn');
 var scoreElement = document.getElementById('score');
 var levelElement = document.getElementById('level');
 var namePlayer = document.getElementById("namePlayer");
