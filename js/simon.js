@@ -9,7 +9,7 @@ var score = 0;
 var buttonElements = document.querySelectorAll('.simon-btn');
 var startButton = document.querySelector('.start-btn');
 var strictButton = document.querySelector('.strict-btn');
-var startButton = document.querySelector('.help-strict-btn');
+var helpStrictButton = document.querySelector('.help-strict-btn');
 var scoreElement = document.getElementById('score');
 var levelElement = document.getElementById('level');
 var namePlayer = document.getElementById("namePlayer");
@@ -22,9 +22,17 @@ var closeButton = document.getElementsByClassName("close")[0];
 // Start button event listener
 startButton.addEventListener('click', startGame);
 
+strictButton.addEventListener('click', strictGame);
+helpStrictButton.addEventListener('click', startGame);
+
 // Button click event listeners
 for (var i = 0; i < buttonElements.length; i++) {
   buttonElements[i].addEventListener('click', handleButtonClick);
+}
+
+function strictGame(){
+  strictMode = true
+  startGame()
 }
 
 // Start the game
@@ -102,7 +110,11 @@ function checkPlayerSequence() {
     } else {
       if (strictMode) {
         openModal('Game Over', 'Hubo un error en la secuencia, vuelve a intentarlo!');
-        startGame();
+        levelElement.textContent = 'Nivel: ' + 0;
+        playerSequence = [];
+        sequence = [];
+        saveLocalStorage(score);
+        score = 0;
       } else {
         openModal('Try Again', 'Hubo un error en la secuencia, vuelve a intentarlo!');
         levelElement.textContent = 'Nivel: ' + 0;
