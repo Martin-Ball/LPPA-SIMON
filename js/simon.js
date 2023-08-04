@@ -35,39 +35,32 @@ function startGame() {
     buttonsDisabled = true;
     generateSequence();
   }else{
-    openModal('Error', 'Ingrese un nombre con más de 3 caractéres')
+    openModal('Error', 'Ingrese un nombre con más de 3 caractéres');
   }
 }
 
 // Generate the sequence
 function generateSequence() {
-  // Generate only one additional random light for this level
   var randomNum = Math.floor(Math.random() * 4);
   sequence.push(randomNum);
-
-  console.log('sequence generate: ' + sequence);
-
   playSequence();
 }
 
 //play sequence generated
 function playSequence() {
-
-  buttonsDisabled = true
+  buttonsDisabled = true;
 
   sequence.forEach((color, index) => {
     setTimeout(function () {
       playButton(color);
-      console.log("color: "+ color)
     }, (index + 1) * 800);
   });
 
-  buttonsDisabled = false
+  buttonsDisabled = false;
 }
 
 // Handle button click
 function handleButtonClick(event) {
-  console.log('Botón clickeado:', event.target.id);
   if (!buttonsDisabled) {
     var buttonId = event.target.id;
     var buttonIndex = getButtonIndex(buttonId);
@@ -94,6 +87,7 @@ function playButton(buttonIndex) {
 // Check player's sequence
 function checkPlayerSequence() {
   if (playerSequence.length === sequence.length) {
+    buttonsDisabled = true
     if (arraysMatch(playerSequence, sequence)) {
       playerSequence = [];
       level++;
@@ -101,17 +95,18 @@ function checkPlayerSequence() {
         score++;
         levelElement.textContent = 'Nivel: ' + sequence.length;
       }, 1000);
+      buttonsDisabled = false
       generateSequence();
     } else {
       if (strictMode) {
-        openModal('Game Over', 'Hubo un error en la secuencia, vuelve a intentarlo!')
+        openModal('Game Over', 'Hubo un error en la secuencia, vuelve a intentarlo!');
         startGame();
       } else {
-        openModal('Try Again', 'Hubo un error en la secuencia, vuelve a intentarlo!')
+        openModal('Try Again', 'Hubo un error en la secuencia, vuelve a intentarlo!');
         levelElement.textContent = 'Nivel: ' + 0;
         playerSequence = [];
-        sequence = []
-        saveLocalStorage(score)
+        sequence = [];
+        saveLocalStorage(score);
       }
     }
   }
@@ -165,13 +160,10 @@ function getLocalStorage(){
     return JSON.parse(scoreLS);
 }
 
-function saveLocalStorage(scoreToSave){
+function saveLocalStorage(){
   var scoreLS = getLocalStorage();
-  console.log(scoreLS)
-  console.log(scoreToSave)
   scoreLS.push(Object.fromEntries(getResults()));
-
-  localStorage.setItem("score", JSON.stringify(scoreLS))
+  localStorage.setItem("score", JSON.stringify(scoreLS));
 }
 
 function getResults() {

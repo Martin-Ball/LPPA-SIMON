@@ -27,11 +27,9 @@ function getLocalStorage(){
     for (var i = 0; i < scores.length; i++) {
         list.push(scores[i]);
     }
-
-    console.log(list)
     return list;
 }
 
 window.onload = function() {
-    loadTable()
+    loadTable();
 };
