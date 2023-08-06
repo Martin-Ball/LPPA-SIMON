@@ -54,6 +54,14 @@
       color: #A5D7E8;
       text-align: center;
   }
+
+  /**SIMON BOARD**/
+  .simon-board {
+    width: 400px;
+    height: 400px; 
+    margin-bottom: 30px;
+  }
+
 }
 
   /**RESET CSS**/

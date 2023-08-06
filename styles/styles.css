@@ -184,7 +184,7 @@ header h1 {
 }
 
 #green.active {
-  background-color: lightgreen; /* Cambia el color del botón activo aquí */
+  background-color: lightgreen;
 }
 
 #red {
@@ -197,7 +197,7 @@ header h1 {
 }
 
 #red.active {
-  background-color: lightcoral; /* Cambia el color del botón activo aquí */
+  background-color: lightcoral;
 }
 
 #yellow {
@@ -210,7 +210,7 @@ header h1 {
 }
 
 #yellow.active {
-  background-color: lightgoldenrodyellow; /* Cambia el color del botón activo aquí */
+  background-color: lightgoldenrodyellow;
 }
 
 #blue {
@@ -223,12 +223,11 @@ header h1 {
 }
 
 #blue.active {
-  background-color: lightblue; /* Cambia el color del botón activo aquí */
+  background-color: lightblue;
 }
 
 
 /**MODAL**/
-
 .modal {
   display: none;
   position: fixed;
