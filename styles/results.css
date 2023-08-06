@@ -1,4 +1,4 @@
-table {
+#table-history {
     width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
@@ -18,6 +18,18 @@ thead {
 thead tr th {
     background-color: #19376D;
     color: #A5D7E8
+}
+
+.table-records table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-records th,
+.table-records td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
 }
 
 .score {
