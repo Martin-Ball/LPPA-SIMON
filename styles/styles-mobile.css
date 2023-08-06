@@ -43,6 +43,23 @@
       margin-bottom: 10px;
   }
 
+  .header-container .player-name input{
+    width: 300px;
+  }
+
+  .btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .start-btn,
+  .strict-btn,
+  .help-strict-btn {
+    margin: 5px 0;
+  }
+
   #score, #level {
       margin: 5px;
       white-space: nowrap;
