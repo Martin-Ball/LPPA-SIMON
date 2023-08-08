@@ -27,7 +27,7 @@ thead tr th {
 
 .table-records th,
 .table-records td {
-    border: 1px solid black;
+    border: 1px solid #000000;
     padding: 8px;
     text-align: left;
 }
