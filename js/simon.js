@@ -1,4 +1,3 @@
-// Variables
 var sequence = [];
 var playerSequence = [];
 var level = 1;
@@ -19,13 +18,11 @@ var titleModal = modal.querySelector('h2');
 var textModal = modal.querySelector('p');
 var closeButton = document.getElementsByClassName('close')[0];
 
-// Start button event listener
 startButton.addEventListener('click', normalGame);
 
 strictButton.addEventListener('click', strictGame);
 helpStrictButton.addEventListener('click', modalSStrict);
 
-// Button click event listeners
 for (var i = 0; i < buttonElements.length; i++) {
   buttonElements[i].addEventListener('click', handleButtonClick);
 }
@@ -40,7 +37,6 @@ function normalGame(){
   startGame()
 }
 
-// Start the game
 function startGame() {
   if(namePlayer.value != '' && namePlayer.value.length > 3){
     playerSequence = [];
@@ -54,17 +50,14 @@ function startGame() {
   }
 }
 
-// Generate the sequence
 function generateSequence() {
   var randomNum = Math.floor(Math.random() * 4);
   sequence.push(randomNum);
   playSequence();
 }
 
-//play sequence generated
 function playSequence() {
   buttonsDisabled = true;
-
   sequence.forEach((color, index) => {
     setTimeout(function () {
       playButton(color);
@@ -74,7 +67,6 @@ function playSequence() {
   buttonsDisabled = false;
 }
 
-// Handle button click
 function handleButtonClick(event) {
   if (!buttonsDisabled) {
     var buttonId = event.target.id;
@@ -86,7 +78,6 @@ function handleButtonClick(event) {
   }
 }
 
-// Play a button
 function playButton(buttonIndex) {
   if (buttonIndex >= 0 && buttonIndex < buttonElements.length) {
     var buttonElement = buttonElements[buttonIndex];
@@ -99,7 +90,6 @@ function playButton(buttonIndex) {
   }
 }
 
-// Check player's sequence
 function checkPlayerSequence() {
   if (playerSequence.length === sequence.length) {
     buttonsDisabled = true
@@ -136,7 +126,6 @@ function checkPlayerSequence() {
   }
 }
 
-// Check if two arrays match
 function arraysMatch(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
@@ -149,7 +138,6 @@ function arraysMatch(arr1, arr2) {
   return true;
 }
 
-// Get button index
 function getButtonIndex(buttonId) {
   switch (buttonId) {
     case 'green':
@@ -163,7 +151,6 @@ function getButtonIndex(buttonId) {
   }
 }
 
-/**MODAL STRICT**/
 function modalSStrict(){
   openModal('¿Que es Todo o nada?', 'Por cada nivel que ganes duplicas puntos, pero si pierdes, tu puntaje vuelve a cero');
 }
@@ -180,13 +167,12 @@ function closeModal() {
   textModal.textContent = '';
 }
 
-/**LOCAL STORAGE**/
 function getLocalStorage(){
   var scoreLS = localStorage.getItem('score');
-    if (!scoreLS) {
-        return [];
-    }
-    return JSON.parse(scoreLS);
+  if (!scoreLS) {
+      return [];
+  }
+  return JSON.parse(scoreLS);
 }
 
 function saveLocalStorage(){
@@ -206,21 +192,18 @@ function getResults() {
 
 function getDateAndHour() {
   var date = new Date();
-
   var day = String(date.getDate()).padStart(2, '0');
   var month = String(date.getMonth() + 1).padStart(2, '0');
   var year = date.getFullYear();
-
   var hr = String(date.getHours()).padStart(2, '0');
   var min = String(date.getMinutes()).padStart(2, '0');
   var seg = String(date.getSeconds()).padStart(2, '0');
-
   return `${day}/${month}/${year} - ${hr}:${min}:${seg}`;
 }
 
 closeButton.addEventListener('click', closeModal);
 window.addEventListener('click', function(event) {
-    if (event.target === modal) {
-        closeModal();
-    }
+  if (event.target === modal) {
+      closeModal();
+  }
 });

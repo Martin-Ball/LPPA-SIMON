@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <link href="assets/icon-simon.png" rel="icon" type="image/x-icon">
   <meta charset="UTF-8">
@@ -9,24 +10,22 @@
   <link rel="stylesheet" href="styles/styles-mobile.css" type="text/css">
   <link rel="stylesheet" href="styles/reset-css.css" type="text/css">
 </head>
+
 <body>
   <header>
     <h1>SIMON GAME</h1>
-
     <div class="menu-toggle">
-        <div class="hamburger"></div>
-        <div class="hamburger"></div>
-        <div class="hamburger"></div>
+      <div class="hamburger"></div>
+      <div class="hamburger"></div>
+      <div class="hamburger"></div>
     </div>
-
     <nav class="top-nav">
-        <a href="index.html">Juego</a>
-        <a href="results.html" id="results">Resultados</a>
-        <a href="contact.html">Contacto</a>
-        <a href="https://github.com/Martin-Ball/LPPA-SIMON" target="_blank">Repositorio</a>
+      <a href="index.html">Juego</a>
+      <a href="results.html" id="results">Resultados</a>
+      <a href="contact.html">Contacto</a>
+      <a href="https://github.com/Martin-Ball/LPPA-SIMON" target="_blank">Repositorio</a>
     </nav>
   </header>
-
   <div class="header-container">
     <div class="player-name">
       <input id="namePlayer" name="name" placeholder="Nombre del jugador">
@@ -36,10 +35,11 @@
       <div id="level">Nivel: 0</div>
     </div>
   </div>
-    
   <div class="simon-container">
     <div class="simon-board">
-      <div id="green" class="simon-btn"> <p></p> </div>
+      <div id="green" class="simon-btn">
+        <p></p>
+      </div>
       <div id="red" class="simon-btn"> </div>
       <div id="yellow" class="simon-btn"> </div>
       <div id="blue" class="simon-btn"> </div>
@@ -49,16 +49,14 @@
       <button class="strict-btn">Todo o nada</button>
       <button class="help-strict-btn">?</button>
     </div>
-  </div>  
-
+  </div>
   <div id="modal-error" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Error</h2>
-        <p>Debe ingresar un nombre con mas de 3 caracteres</p>
+      <span class="close">&times;</span>
+      <h2>Error</h2>
+      <p>Debe ingresar un nombre con mas de 3 caracteres</p>
     </div>
   </div>
-
   <script src="js/simon.js"></script>
   <script src="js/menu.js"></script>
 </body>

@@ -1,4 +1,3 @@
-
 var menuToggle = document.querySelector('.menu-toggle');
 var topnav = document.querySelector('.top-nav');
 

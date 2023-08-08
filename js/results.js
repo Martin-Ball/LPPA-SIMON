@@ -4,11 +4,9 @@ var sortColumn = null;
 
 function loadTable() {
     var table = document.getElementById('table-history').getElementsByTagName('tbody')[0];
-
     table.innerHTML = "";
-
     if (sortColumn !== null) {
-        records.sort(function(a, b) {
+        records.sort(function (a, b) {
             if (sortDirection === 'asc') {
                 return a[sortColumn] > b[sortColumn] ? 1 : -1;
             } else {
@@ -23,7 +21,6 @@ function loadTable() {
         var dateCell = row.insertCell(1);
         var levelCell = row.insertCell(2);
         var hitsCell = row.insertCell(3);
-
         nameCell.innerHTML = records[i].name;
         dateCell.innerHTML = records[i].date;
         levelCell.innerHTML = records[i].level;
@@ -32,7 +29,7 @@ function loadTable() {
 }
 
 
-function getLocalStorage(){
+function getLocalStorage() {
     var scoreLS = localStorage.getItem('score');
     if (!scoreLS) {
         return [];
@@ -45,13 +42,12 @@ function getLocalStorage(){
     return list;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     records = getLocalStorage();
     loadTable();
-
     var headers = document.querySelectorAll('#table-history th[data-sort]');
-    headers.forEach(function(header) {
-        header.addEventListener('click', function() {
+    headers.forEach(function (header) {
+        header.addEventListener('click', function () {
             var key = this.getAttribute('data-sort');
             if (sortColumn === key) {
                 sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
@@ -65,6 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-window.onload = function() {
+window.onload = function () {
     loadTable();
 };
