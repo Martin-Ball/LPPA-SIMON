@@ -76,6 +76,8 @@
   .simon-board {
     width: 400px;
     height: 400px; 
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     margin-bottom: 30px;
   }
 

@@ -84,7 +84,7 @@ header h1 {
   border-radius: 10px;
   position: relative;
   cursor: pointer;
-  font-weight: 400;
+  font-weight: 400px;
   font-size: 17px;
   border: 1px solid;
   font-family: inherit;
@@ -114,8 +114,8 @@ header h1 {
   height: 600px;
   margin: 20px auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 300px 290px;
+  grid-template-rows: 300px 290px;
   grid-gap: 10px;
   border-radius:50%;
   background-color: #000000;
